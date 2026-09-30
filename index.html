@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turno Conectado</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <div class="logo">Turno <span>Conectado</span></div>
+            <h1>Acesso ao sistema</h1>
+            <p>Informe o RA ou número do crachá para continuar.</p><label for="ra">RA / Número do crachá</label><input
+                id="ra" type="text" inputmode="numeric" maxlength="8" placeholder="Digite de 4 a 8 dígitos"
+                onkeydown="if(event.key==='Enter') entrar()"><button class="login-btn"
+                onclick="entrar()">Entrar</button>
+            <div id="loginMessage" class="login-message"></div>
+            <div class="demo-info"><b>Modo demonstrativo:</b><br>Manutenção Preditiva: 1234,
+                5678<br>Manutenção Preventiva: 2468,
+                1357<br>Manutenção Corretiva: 9876,
+                4321<br>Gestão: 1111,
+                2222,
+                3333</div>
+        </div>
+    </div>
+    <div id="system" class="system">
+        <header>
+            <div class="logo">Turno <span>Conectado</span></div>
+            <div class="user"><span id="userInfo">Usuário</span><button class="logout" onclick="sair()">Sair</button>
+            </div>
+        </header>
+        <div class="layout">
+            <nav><button class="active" onclick="showPage('dashboard',this)">📊 Dashboard</button><button
+                    onclick="showPage('maquinas',this)">⚙️ Máquinas</button><button
+                    onclick="showPage('registro',this)">📝 Registrar ocorrência</button><button
+                    onclick="showPage('historico',this)">🕒 Histórico</button><button id="gestaoMenu"
+                    onclick="showPage('gestao',this)">👨‍💼 Gestão</button></nav>
+            <main>
+                <section id="dashboard">
+                    <h1>Visão geral da manutenção</h1>
+                    <div class="sub">Acompanhe ocorrências e a continuidade dos reparos entre turnos.</div>
+                    <div class="info"><b>Bem-vindo ao Turno Conectado.</b>Consulte máquinas,
+                        registre ocorrências e acompanhe a continuidade dos reparos.</div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="label">Máquinas monitoradas</div>
+                            <div class="value">24</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Ocorrências abertas</div>
+                            <div class="value">4</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Em continuidade</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Resolvidas hoje</div>
+                            <div class="value">7</div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="panel">
+                            <h2>Ocorrências pendentes</h2>
+                            <div class="machine">
+                                <div><b>Máquina 07</b><br><small>Falha no sensor • Turno A</small></div><span
+                                    class="tag red">NÃO RESOLVIDA</span>
+                            </div>
+                            <div class="machine">
+                                <div><b>Máquina 12</b><br><small>Vibração no motor • Turno B</small></div><span
+                                    class="tag yellow">EM TESTE</span>
+                            </div>
+                            <div class="machine">
+                                <div><b>Máquina 03</b><br><small>Temperatura elevada • Turno A</small></div><span
+                                    class="tag yellow">PENDENTE</span>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <h2>Alerta de continuidade</h2>
+                            <div class="ai"><b>⚠️ Máquina 07</b>
+                                <p>O último turno substituiu o sensor,
+                                    mas a falha permaneceu.</p>
+                                <p><strong>Evite repetir o procedimento.</strong></p>
+                                <p>Próxima etapa: verificar cabeamento e painel.</p><button class="primary"
+                                    onclick="showPage('historico',document.querySelectorAll('nav button')[3])">Ver
+                                    reparo</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="maquinas" class="hidden">
+                    <h1>Máquinas</h1>
+                    <div class="sub">Consulte as informações e o histórico de cada equipamento.</div>
+                    <div class="panel">
+                        <h2>Máquinas monitoradas</h2>
+                        <div class="machine">
+                            <div><b>Máquina 07</b><br><small>Falha no sensor</small></div><span class="tag red">EM
+                                CONTINUIDADE</span><button class="primary"
+                                onclick="showPage('maquina07')">Abrir</button>
+                        </div>
+                        <div class="machine">
+                            <div><b>Máquina 12</b><br><small>Vibração no motor</small></div><span class="tag yellow">EM
+                                TESTE</span><button class="primary" onclick="showPage('maquina12')">Abrir</button>
+                        </div>
+                        <div class="machine">
+                            <div><b>Máquina 03</b><br><small>Temperatura elevada</small></div><span
+                                class="tag yellow">PENDENTE</span><button class="primary"
+                                onclick="showPage('maquina03')">Abrir</button>
+                        </div>
+                    </div>
+                </section>
+                <section id="maquina07" class="hidden">
+                    <h1>Máquina 07</h1>
+                    <div class="sub">Informações e acesso ao histórico da máquina.</div>
+                    <div class="grid">
+                        <div class="panel">
+                            <h2>Identificação</h2>
+                            <p><b>Status:</b><span class="tag red">Falha não solucionada</span></p>
+                            <p><b>Última ocorrência:</b>22/09/2026 • Turno A</p>
+                            <p><b>Problema:</b>Falha no sensor</p>
+                            <p><b>Última ação:</b>Substituição do sensor</p>
+                            <div class="ai"><b>Resumo inteligente</b>
+                                <p>O sensor já foi trocado e o erro continua. A próxima equipe deve continuar o
+                                    diagnóstico sem repetir a troca do sensor.</p>
+                            </div>
+                        </div>
+                        <div class="panel" style="text-align:center">
+                            <h2>QR Code da máquina</h2>
+                            <div class="qr"></div><small>QR demonstrativo — levaria ao histórico da Máquina 07</small>
+                        </div>
+                    </div>
+                </section>
+                <section id="maquina12" class="hidden">
+                    <h1>Máquina 12</h1>
+                    <div class="sub">Informações do equipamento.</div>
+                    <div class="panel">
+                        <p><b>Status:</b><span class="tag yellow">Em teste</span></p>
+                        <p><b>Problema:</b>Vibração no motor</p>
+                        <p><b>Última ação:</b>Inspeção inicial do conjunto do motor.</p>
+                    </div>
+                </section>
+                <section id="maquina03" class="hidden">
+                    <h1>Máquina 03</h1>
+                    <div class="sub">Informações do equipamento.</div>
+                    <div class="panel">
+                        <p><b>Status:</b><span class="tag yellow">Pendente</span></p>
+                        <p><b>Problema:</b>Temperatura elevada</p>
+                        <p><b>Última ação:</b>Verificação inicial registrada pelo Turno A.</p>
+                    </div>
+                </section>
+                <section id="registro" class="hidden">
+                    <h1>Registrar ocorrência</h1>
+                    <div class="sub">Registre as informações da manutenção.</div>
+                    <div class="panel">
+                        <div class="row">
+                            <div><label>Máquina</label><select>
+                                    <option>Máquina 07</option>
+                                    <option>Máquina 12</option>
+                                    <option>Máquina 03</option>
+                                </select></div>
+                            <div><label>Turno</label><select>
+                                    <option>Turno A — Manhã</option>
+                                    <option>Turno B — Tarde</option>
+                                    <option>Turno C — Noite</option>
+                                </select></div>
+                        </div><label>Relato do técnico</label><textarea>Máquina apresentou falha no sensor. Foi feita a troca,
+        mas a falha continuou. O painel foi testado e o erro permanece.</textarea><button class="primary"
+                            onclick="organizar()">✨ Organizar com IA</button>
+                        <div id="resultado" class="ai hidden"><b>Registro estruturado</b>
+                            <p><b>Problema:</b>Falha no sensor</p>
+                            <p><b>Procedimento realizado:</b>Troca do sensor</p>
+                            <p><b>Teste:</b>Painel testado</p>
+                            <p><b>Resultado:</b>Falha permanece</p>
+                            <p><b>Status:</b>🔴 Pendente</p>
+                            <p><b>Próxima etapa:</b>Verificar cabeamento e painel.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="historico" class="hidden">
+                    <h1>Continuidade do reparo — Máquina 07</h1>
+                    <div class="sub">Uma única ocorrência acompanhada pelos diferentes turnos.</div>
+                    <div class="panel">
+                        <div class="timeline">
+                            <div class="event"><b>08:12 • Turno A</b>
+                                <p>Falha identificada no sensor.</p>
+                            </div>
+                            <div class="event"><b>08:40 • Turno A</b>
+                                <p>Sensor substituído.</p>
+                            </div>
+                            <div class="event"><b>09:05 • Turno A</b>
+                                <p>Teste realizado no painel.</p>
+                            </div>
+                            <div class="event"><b>09:15 • Turno A</b>
+                                <p>❌ Falha permanece. Ocorrência deixada em aberto.</p>
+                            </div>
+                            <div class="event"><b>14:03 • Turno B</b>
+                                <p>Funcionário escaneou o QR Code e assumiu a ocorrência.</p>
+                            </div>
+                            <div class="event"><b>14:10 • Turno B</b>
+                                <p>Próxima etapa: verificar cabeamento e painel.</p>
+                            </div>
+                        </div>
+                        <div class="ai"><b>🧠 Memória inteligente da máquina</b>
+                            <p>O sistema destaca o que já foi feito para reduzir retrabalho.</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="gestao" class="hidden">
+                    <h1>Área de Gestão</h1>
+                    <div class="sub">Acompanhamento das informações e ocorrências da manutenção.</div>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="label">Ocorrências abertas</div>
+                            <div class="value">4</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Em continuidade</div>
+                            <div class="value">3</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Resolvidas hoje</div>
+                            <div class="value">7</div>
+                        </div>
+                        <div class="card">
+                            <div class="label">Máquinas monitoradas</div>
+                            <div class="value">24</div>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="panel">
+                            <h2>Acompanhamento</h2>
+                            <p>Os gestores podem consultar as ocorrências registradas pela equipe de manutenção.</p>
+                            <p>Também podem acompanhar a continuidade dos reparos e consultar o histórico das máquinas.
+                            </p>
+                        </div>
+                        <div class="panel">
+                            <h2>Controle de dados</h2>
+                            <p>O acesso às informações ocorre conforme as permissões do usuário.</p>
+                            <p><b>Área:</b>Gestão</p>
+                            <p><b>Função:</b>Acompanhamento e administração dos dados.</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script>const areasManutencao = {
+            "1234": "Manutenção Preditiva",
+            "5678": "Manutenção Preditiva",
+            "2468": "Manutenção Preventiva",
+            "1357": "Manutenção Preventiva",
+            "9876": "Manutenção Corretiva",
+            "4321": "Manutenção Corretiva"
+        }
+
+
+        const gestores = ["1111",
+            "2222",
+            "3333"];
+
+        function entrar() {
+            const ra = document.getElementById("ra").value.trim();
+            const msg = document.getElementById("loginMessage");
+
+            if (!/^\d{4,8}$/.test(ra)) {
+                msg.style.color = "#b42318";
+                msg.textContent = "Digite um RA válido com 4 a 8 dígitos.";
+                return;
+            }
+
+            let area = "";
+            if (areasManutencao[ra]) area = areasManutencao[ra];
+            else if (gestores.includes(ra)) area = "Gestão";
+
+            else {
+                msg.style.color = "#b42318";
+                msg.textContent = "Acesso negado. Este RA não pertence a uma área autorizada.";
+                return;
+            }
+
+            msg.style.color = "#237447";
+            msg.textContent = "Acesso autorizado. Carregando sistema...";
+
+            setTimeout(() => {
+                document.getElementById("loginScreen").style.display = "none";
+                document.getElementById("system").style.display = "block";
+                document.getElementById("userInfo").textContent = "RA " + ra + " • " + area;
+                document.getElementById("gestaoMenu").style.display = area === "Gestão" ? "block" : "none";
+                showPage("dashboard", document.querySelector("nav button"));
+            }, 400);
+        }
+
+        function sair() {
+            document.getElementById("system").style.display = "none";
+            document.getElementById("loginScreen").style.display = "flex";
+            document.getElementById("ra").value = "";
+            document.getElementById("loginMessage").textContent = "";
+        }
+
+        function showPage(id, btn) {
+            document.querySelectorAll("main section").forEach(s => s.classList.add("hidden"));
+            const page = document.getElementById(id);
+            if (page) page.classList.remove("hidden");
+            document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+            if (btn) btn.classList.add("active");
+        }
+
+        function organizar() {
+            document.getElementById("resultado").classList.remove("hidden");
+        }
+    </script>
+</body>
+
+</html>

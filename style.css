@@ -1,0 +1,896 @@
+ * {
+     box-sizing: border-box
+ }
+
+ body {
+     margin: 0;
+     font-family: Arial, sans-serif;
+     background: #f4f6f8;
+     color: #17202a
+ }
+
+ button,
+ input,
+ textarea,
+ select {
+     font: inherit
+ }
+
+ .login-screen {
+     min-height: 100vh;
+     background: #12324a;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 25px
+ }
+
+ .login-box {
+     width: 420px;
+     background: #fff;
+     border-radius: 16px;
+     padding: 38px;
+     box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+     text-align: center
+ }
+
+ .logo {
+     font-weight: 800;
+     font-size: 25px;
+     color: #12324a
+ }
+
+ .logo span {
+     color: #58c7a8
+ }
+
+ .login-box h1 {
+     font-size: 24px;
+     margin: 28px 0 8px
+ }
+
+ .login-box p {
+     color: #68737d;
+     font-size: 14px
+ }
+
+ .login-box label {
+     display: block;
+     text-align: left;
+     font-size: 13px;
+     font-weight: 700;
+     margin-top: 24px
+ }
+
+ .login-box input {
+     width: 100%;
+     padding: 13px;
+     border: 1px solid #ccd4da;
+     border-radius: 9px;
+     margin: 8px 0 15px
+ }
+
+ .login-btn,
+ .primary {
+     background: #12324a;
+     color: #fff;
+     border: 0;
+     border-radius: 8px;
+     padding: 11px 15px;
+     cursor: pointer;
+     font-weight: 700
+ }
+
+ .login-btn {
+     width: 100%;
+     padding: 13px
+ }
+
+ .login-message {
+     margin-top: 15px;
+     font-size: 13px;
+     font-weight: 600
+ }
+
+ .demo-info {
+     margin-top: 25px;
+     padding: 12px;
+     background: #f1f5f7;
+     border-radius: 9px;
+     font-size: 11px;
+     color: #68737d;
+     text-align: left
+ }
+
+ .system {
+     display: none
+ }
+
+ header {
+     height: 72px;
+     background: #12324a;
+     color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 28px
+ }
+
+ header .logo {
+     color: #fff;
+     font-size: 21px
+ }
+
+ .user {
+     font-size: 13px;
+     opacity: .95
+ }
+
+ .logout {
+     background: #fff;
+     color: #12324a;
+     border: 0;
+     border-radius: 7px;
+     padding: 8px 12px;
+     margin-left: 15px;
+     cursor: pointer;
+     font-weight: 700
+ }
+
+ .layout {
+     display: flex;
+     min-height: calc(100vh - 72px)
+ }
+
+ nav {
+     width: 235px;
+     background: #fff;
+     border-right: 1px solid #e4e8ec;
+     padding: 20px 14px
+ }
+
+ nav button {
+     width: 100%;
+     border: 0;
+     background: none;
+     text-align: left;
+     padding: 13px 14px;
+     margin: 3px 0;
+     border-radius: 9px;
+     cursor: pointer;
+     font-size: 14px;
+     color: #46515c
+ }
+
+ nav button.active,
+ nav button:hover {
+     background: #eaf5f2;
+     color: #12324a;
+     font-weight: 700
+ }
+
+ main {
+     flex: 1;
+     padding: 28px;
+     max-width: 1250px
+ }
+
+ h1 {
+     margin: 0 0 6px;
+     font-size: 27px
+ }
+
+ .sub {
+     color: #68737d;
+     font-size: 14px;
+     margin-bottom: 24px
+ }
+
+ .cards {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 14px;
+     margin-bottom: 22px
+ }
+
+ .card {
+     background: #fff;
+     border: 1px solid #e3e7eb;
+     border-radius: 12px;
+     padding: 18px
+ }
+
+ .label {
+     font-size: 12px;
+     color: #73808a
+ }
+
+ .value {
+     font-size: 27px;
+     font-weight: 800;
+     margin-top: 7px
+ }
+
+ .grid {
+     display: grid;
+     grid-template-columns: 1.5fr 1fr;
+     gap: 18px
+ }
+
+ .panel {
+     background: #fff;
+     border: 1px solid #e3e7eb;
+     border-radius: 12px;
+     padding: 20px
+ }
+
+ .panel h2 {
+     font-size: 17px;
+     margin: 0 0 16px
+ }
+
+ .machine {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-bottom: 1px solid #edf0f2;
+     padding: 14px 0;
+     gap: 12px
+ }
+
+ .machine:last-child {
+     border: 0
+ }
+
+ .tag {
+     font-size: 11px;
+     padding: 5px 8px;
+     border-radius: 20px;
+     font-weight: 700
+ }
+
+ .red {
+     background: #fde8e8;
+     color: #a33
+ }
+
+ .yellow {
+     background: #fff3cf;
+     color: #8a6500
+ }
+
+ .green {
+     background: #e3f5eb;
+     color: #237447
+ }
+
+ input,
+ textarea,
+ select {
+     width: 100%;
+     padding: 11px;
+     border: 1px solid #ccd4da;
+     border-radius: 8px;
+     margin: 7px 0 13px
+ }
+
+ textarea {
+     min-height: 100px;
+     resize: vertical
+ }
+
+ .row {
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 14px
+ }
+
+ .timeline {
+     border-left: 3px solid #d8e7e3;
+     margin-left: 7px;
+     padding-left: 20px
+ }
+
+ .event {
+     position: relative;
+     margin-bottom: 20px
+ }
+
+ .event:before {
+     content: "";
+     position: absolute;
+     left: -29px;
+     top: 3px;
+     width: 11px;
+     height: 11px;
+     border-radius: 50%;
+     background: #58c7a8
+ }
+
+ .ai {
+     background: #eef8f5;
+     border: 1px solid #c9e9df;
+     padding: 15px;
+     border-radius: 10px;
+     margin-top: 12px
+ }
+
+ .ai b {
+     color: #17654f
+ }
+
+ .hidden {
+     display: none
+ }
+
+ .qr {
+     width: 120px;
+     height: 120px;
+     border: 8px solid #17202a;
+     margin: 10px auto;
+     background: repeating-linear-gradient(45deg, #fff 0 6px, #17202a 6px 11px)
+ }
+
+ .info {
+     padding: 12px 14px;
+     background: #f1f5f7;
+     border-radius: 9px;
+     margin-bottom: 18px;
+     font-size: 13px
+ }
+
+ @media(max-width:850px) {
+     nav {
+         width: 70px
+     }
+
+     nav button {
+         font-size: 0;
+         text-align: center
+     }
+
+     .cards {
+         grid-template-columns: 1fr 1fr
+     }
+
+     .grid {
+         grid-template-columns: 1fr
+     }
+
+     .row {
+         grid-template-columns: 1fr
+     }
+
+     .login-box {
+         width: 100%
+     }
+ }
+
+ html,
+ body {
+     width: 100%;
+     max-width: 100%;
+     overflow-x: hidden
+ }
+
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box
+ }
+
+ img,
+ svg,
+ canvas,
+ video {
+     max-width: 100%;
+     height: auto
+ }
+
+ @media(max-width:900px) {
+
+     .sidebar,
+     aside {
+         width: 210px !important
+     }
+
+     .main,
+     main,
+     .content {
+         margin-left: 210px !important;
+         width: calc(100% - 210px) !important
+     }
+ }
+
+ @media(max-width:700px) {
+     #loginScreen {
+         min-height: 100vh;
+         min-height: 100dvh;
+         padding: 18px !important
+     }
+
+     .sidebar,
+     aside {
+         position: fixed !important;
+         left: 0 !important;
+         right: 0 !important;
+         bottom: 0 !important;
+         top: auto !important;
+         width: 100% !important;
+         height: 70px !important;
+         z-index: 9999 !important;
+         display: flex !important;
+         flex-direction: row !important;
+         align-items: center !important;
+         padding: 4px !important;
+         border-right: 0 !important;
+         border-top: 1px solid #dfe3e8 !important
+     }
+
+     .sidebar .brand,
+     .sidebar h1,
+     .sidebar .logo,
+     aside .brand,
+     aside h1,
+     aside .logo {
+         display: none !important
+     }
+
+     .sidebar nav,
+     aside nav {
+         width: 100% !important;
+         display: flex !important;
+         flex-direction: row !important;
+         justify-content: space-around !important;
+         align-items: center !important;
+         gap: 2px !important
+     }
+
+     .sidebar nav button,
+     .sidebar nav a,
+     aside nav button,
+     aside nav a {
+         flex: 1 1 0 !important;
+         min-width: 0 !important;
+         height: 60px !important;
+         min-height: 60px !important;
+         margin: 0 !important;
+         padding: 5px 2px !important;
+         font-size: 10px !important;
+         line-height: 1.15 !important;
+         text-align: center !important;
+         border-radius: 9px !important
+     }
+
+     .main,
+     main,
+     .content {
+         margin-left: 0 !important;
+         width: 100% !important;
+         max-width: 100% !important;
+         padding: 12px !important;
+         padding-bottom: 88px !important
+     }
+
+     header,
+     .header,
+     .topbar {
+         width: 100% !important;
+         max-width: 100% !important;
+         padding: 11px 12px !important;
+         gap: 8px !important;
+         flex-wrap: wrap !important
+     }
+
+     header h1,
+     .header h1,
+     .topbar h1 {
+         font-size: 19px !important
+     }
+
+     #userInfo {
+         font-size: 11px !important;
+         max-width: 100% !important;
+         overflow-wrap: anywhere !important
+     }
+
+     .grid,
+     .cards,
+     .dashboard-grid,
+     .stats,
+     .stat-grid,
+     .machines-grid,
+     .machine-grid {
+         grid-template-columns: 1fr !important
+     }
+
+     .card,
+     .panel,
+     .machine-card,
+     .stat-card,
+     section {
+         width: 100% !important;
+         max-width: 100% !important
+     }
+
+     form {
+         width: 100% !important
+     }
+
+     input,
+     select,
+     textarea,
+     button {
+         max-width: 100% !important
+     }
+
+     input,
+     select,
+     textarea {
+         font-size: 16px !important
+     }
+
+     button,
+     .btn,
+     a.btn {
+         min-height: 44px
+     }
+
+     .actions,
+     .toolbar,
+     .top-actions {
+         display: flex !important;
+         flex-wrap: wrap !important;
+         gap: 8px !important
+     }
+
+     .actions>*,
+     .toolbar>*,
+     .top-actions>* {
+         flex: 1 1 100% !important
+     }
+
+     table {
+         display: block !important;
+         width: 100% !important;
+         overflow-x: auto !important;
+         -webkit-overflow-scrolling: touch !important;
+         white-space: nowrap !important
+     }
+
+     .qr,
+     .qr-code {
+         max-width: 180px !important;
+         margin-left: auto !important;
+         margin-right: auto !important
+     }
+
+     h1,
+     h2,
+     h3,
+     h4,
+     p,
+     span,
+     div {
+         overflow-wrap: anywhere
+     }
+ }
+
+ @media(max-width:420px) {
+
+     .main,
+     main,
+     .content {
+         padding: 9px !important;
+         padding-bottom: 86px !important
+     }
+
+     h1 {
+         font-size: 20px !important
+     }
+
+     h2 {
+         font-size: 18px !important
+     }
+
+     h3 {
+         font-size: 16px !important
+     }
+
+     .sidebar nav button,
+     .sidebar nav a,
+     aside nav button,
+     aside nav a {
+         font-size: 9px !important
+     }
+ }
+
+ @media(pointer:coarse) {
+
+     button,
+     input,
+     select,
+     textarea,
+     a {
+         min-height: 44px
+     }
+ }
+
+ html,
+ body {
+     width: 100%;
+     max-width: 100%;
+     overflow-x: hidden;
+ }
+
+ * {
+     box-sizing: border-box;
+ }
+
+ main {
+     min-width: 0;
+     width: 100%;
+ }
+
+ /* TABLET */
+ @media (max-width: 1000px) {
+
+     nav {
+         width: 190px;
+         flex-shrink: 0;
+     }
+
+     main {
+         padding: 22px;
+     }
+
+     .cards {
+         grid-template-columns: repeat(2, 1fr);
+     }
+
+     .grid {
+         grid-template-columns: 1fr;
+     }
+ }
+
+
+ /* CELULAR */
+ @media (max-width: 700px) {
+
+     /* CABEÇALHO */
+     header {
+         height: auto;
+         min-height: 65px;
+         padding: 10px 12px;
+         gap: 8px;
+         flex-wrap: wrap;
+     }
+
+     header .logo {
+         font-size: 18px;
+     }
+
+     .user {
+         margin-left: auto;
+         display: flex;
+         align-items: center;
+         gap: 6px;
+         max-width: 70%;
+     }
+
+     #userInfo {
+         font-size: 10px;
+         text-align: right;
+         overflow-wrap: anywhere;
+     }
+
+     .logout {
+         margin-left: 0;
+         padding: 8px 10px;
+         white-space: nowrap;
+     }
+
+
+     /* LAYOUT */
+     .layout {
+         display: block;
+         min-height: calc(100vh - 65px);
+     }
+
+
+     /* MENU INFERIOR */
+     nav {
+         position: fixed;
+         left: 0;
+         right: 0;
+         bottom: 0;
+
+         width: 100%;
+         height: 70px;
+
+         padding: 4px;
+
+         display: flex;
+         flex-direction: row;
+         align-items: stretch;
+
+         background: white;
+
+         border-right: none;
+         border-top: 1px solid #dfe5e9;
+
+         z-index: 9999;
+
+         box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.08);
+     }
+
+
+     /* BOTÕES DO MENU */
+     nav button {
+         flex: 1;
+         width: auto;
+
+         min-width: 0;
+         height: 62px;
+
+         margin: 0 2px;
+         padding: 5px 2px;
+
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         text-align: center;
+
+         font-size: 10px;
+         line-height: 1.15;
+
+         white-space: normal;
+     }
+
+
+     /* CONTEÚDO */
+     main {
+         width: 100%;
+         max-width: 100%;
+
+         padding: 16px 12px 90px;
+
+         margin: 0;
+     }
+
+
+     /* TÍTULOS */
+     h1 {
+         font-size: 22px;
+         line-height: 1.2;
+     }
+
+     .sub {
+         font-size: 13px;
+         line-height: 1.4;
+     }
+
+
+     /* CARDS */
+     .cards {
+         grid-template-columns: 1fr;
+         gap: 10px;
+     }
+
+     .card {
+         width: 100%;
+     }
+
+
+     /* PAINÉIS */
+     .grid {
+         grid-template-columns: 1fr;
+         gap: 12px;
+     }
+
+     .panel {
+         width: 100%;
+         max-width: 100%;
+         padding: 15px;
+     }
+
+
+     /* MÁQUINAS */
+     .machine {
+         flex-wrap: wrap;
+         align-items: flex-start;
+     }
+
+     .machine>div {
+         width: 100%;
+         min-width: 0;
+     }
+
+
+     /* FORMULÁRIO */
+     .row {
+         grid-template-columns: 1fr;
+     }
+
+     input,
+     select,
+     textarea {
+         width: 100%;
+         max-width: 100%;
+         font-size: 16px;
+     }
+
+     textarea {
+         min-height: 130px;
+     }
+
+     .primary {
+         width: 100%;
+         min-height: 44px;
+     }
+
+
+     /* QR CODE */
+     .qr {
+         margin-left: auto;
+         margin-right: auto;
+     }
+
+
+     /* LOGIN */
+     .login-screen {
+         min-height: 100vh;
+         min-height: 100dvh;
+         padding: 15px;
+     }
+
+     .login-box {
+         width: 100%;
+         max-width: 420px;
+         padding: 28px 20px;
+     }
+ }
+
+
+ /* CELULARES PEQUENOS */
+ @media (max-width: 430px) {
+
+     header {
+         padding: 8px 10px;
+     }
+
+     header .logo {
+         font-size: 16px;
+     }
+
+     #userInfo {
+         font-size: 9px;
+     }
+
+     .logout {
+         font-size: 11px;
+         padding: 7px 8px;
+     }
+
+     main {
+         padding: 13px 10px 88px;
+     }
+
+     h1 {
+         font-size: 20px;
+     }
+
+     .panel {
+         padding: 13px;
+     }
+
+     nav {
+         height: 68px;
+     }
+
+     nav button {
+         height: 60px;
+         font-size: 9px;
+     }
+ }
