@@ -18,7 +18,7 @@
 
  .login-screen {
      min-height: 100vh;
-     background: #12324a;
+     background: #031a2b;
      display: flex;
      align-items: center;
      justify-content: center;
@@ -37,7 +37,7 @@
  .logo {
      font-weight: 800;
      font-size: 30px;
-     color: #053b64
+     color: #0a2a43
  }
 
  .logo span {
@@ -72,7 +72,7 @@
 
  .login-btn,
  .primary {
-     background: #12324a;
+     background: #031a2b;
      color: #fff;
      border: 0;
      border-radius: 8px;
@@ -108,7 +108,7 @@
 
  header {
      height: 72px;
-     background: #053b64;
+     background: #031a2b;
      color: #ffffff;
      display: flex;
      align-items: center;
@@ -144,7 +144,7 @@
 
  nav {
      width: 235px;
-     background: #053b64;
+     background: #031a2b;
      border-right: 1px solid #d3ecff;
      padding: 20px 14px
  }
@@ -164,7 +164,7 @@
 
  nav button.active,
  nav button:hover {
-     background: #05355a;
+     background: #05253d;
      color: #d3ecff;
      font-weight: 700
  }
@@ -714,7 +714,7 @@
          flex-direction: row;
          align-items: stretch;
 
-         background: #053b64;
+         background: #031a2b;
 
          border-right: none;
          border-top: 1px solid #1e323f;
