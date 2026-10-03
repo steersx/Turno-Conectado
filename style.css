@@ -36,12 +36,12 @@
 
  .logo {
      font-weight: 800;
-     font-size: 25px;
-     color: #12324a
+     font-size: 30px;
+     color: #053b64
  }
 
  .logo span {
-     color: #58c7a8
+     color: #189e8a
  }
 
  .login-box h1 {
@@ -108,8 +108,8 @@
 
  header {
      height: 72px;
-     background: #12324a;
-     color: #fff;
+     background: #053b64;
+     color: #ffffff;
      display: flex;
      align-items: center;
      justify-content: space-between;
@@ -117,7 +117,7 @@
  }
 
  header .logo {
-     color: #fff;
+     color: #ffffff;
      font-size: 21px
  }
 
@@ -144,8 +144,8 @@
 
  nav {
      width: 235px;
-     background: #fff;
-     border-right: 1px solid #e4e8ec;
+     background: #053b64;
+     border-right: 1px solid #d3ecff;
      padding: 20px 14px
  }
 
@@ -159,13 +159,13 @@
      border-radius: 9px;
      cursor: pointer;
      font-size: 14px;
-     color: #46515c
+     color: #d3ecff
  }
 
  nav button.active,
  nav button:hover {
-     background: #eaf5f2;
-     color: #12324a;
+     background: #05355a;
+     color: #d3ecff;
      font-weight: 700
  }
 
@@ -194,7 +194,7 @@
  }
 
  .card {
-     background: #fff;
+     background: #ffffffeb;
      border: 1px solid #e3e7eb;
      border-radius: 12px;
      padding: 18px
@@ -218,7 +218,7 @@
  }
 
  .panel {
-     background: #fff;
+     background: #ffffff;
      border: 1px solid #e3e7eb;
      border-radius: 12px;
      padding: 20px
@@ -714,10 +714,10 @@
          flex-direction: row;
          align-items: stretch;
 
-         background: white;
+         background: #053b64;
 
          border-right: none;
-         border-top: 1px solid #dfe5e9;
+         border-top: 1px solid #1e323f;
 
          z-index: 9999;
 
@@ -893,4 +893,85 @@
          height: 60px;
          font-size: 9px;
      }
+ }
+
+ /* PAINEL DE GESTÃO */
+ #gestao .panel {
+     margin-bottom: 18px;
+     min-width: 0;
+ }
+
+ #gestao .panel h2 {
+     color: #12324a;
+ }
+
+ #gestao .table-wrap {
+     width: 100%;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
+ }
+
+ #gestao .gestao-tabela {
+     width: 100%;
+     border-collapse: collapse;
+     font-size: 13px;
+     text-align: left;
+ }
+
+ #gestao .gestao-tabela th,
+ #gestao .gestao-tabela td {
+     padding: 12px;
+     border-bottom: 1px solid #e3e7eb;
+     vertical-align: top;
+ }
+
+ #gestao .gestao-tabela th {
+     background: #f1f5f7;
+     color: #12324a;
+     white-space: nowrap;
+ }
+
+ #gestao .gestao-tabela td {
+     min-width: 110px;
+ }
+
+ #gestao .gestao-tabela tr:hover {
+     background: #f8fafb;
+ }
+
+ #gestao .ai {
+     line-height: 1.6;
+     overflow-wrap: anywhere;
+ }
+
+ #gestao .sub {
+     line-height: 1.5;
+ }
+
+ @media (max-width: 700px) {
+     #gestao .gestao-tabela {
+         font-size: 12px;
+     }
+
+     #gestao .gestao-tabela th,
+     #gestao .gestao-tabela td {
+         padding: 10px;
+     }
+
+     #gestao .panel {
+         padding: 14px;
+     }
+ }
+
+ /* CORREÇÃO DA NAVEGAÇÃO ENTRE PÁGINAS */
+ section.hidden {
+     display: none !important;
+ }
+
+ section:not(.hidden) {
+     display: block;
+ }
+
+ .hidden {
+     display: none !important;
  }

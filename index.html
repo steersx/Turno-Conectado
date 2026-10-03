@@ -215,46 +215,149 @@
                         </div>
                     </div>
                 </section>
+
                 <section id="gestao" class="hidden">
-                    <h1>Área de Gestão</h1>
-                    <div class="sub">Acompanhamento das informações e ocorrências da manutenção.</div>
+                    <h1>Painel de Gestão</h1>
+                    <div class="sub">
+                        Acompanhamento completo das máquinas, ocorrências e manutenções.
+                    </div>
+
+                    <!-- INDICADORES -->
                     <div class="cards">
                         <div class="card">
+                            <div class="label">Máquinas monitoradas</div>
+                            <div class="value">30</div>
+                        </div>
+                        <div class="card">
                             <div class="label">Ocorrências abertas</div>
-                            <div class="value">2</div>
+                            <div class="value" id="gestaoAbertas">2</div>
                         </div>
                         <div class="card">
                             <div class="label">Em continuidade</div>
-                            <div class="value">2</div>
+                            <div class="value" id="gestaoContinuidade">2</div>
                         </div>
                         <div class="card">
                             <div class="label">Resolvidas hoje</div>
                             <div class="value">7</div>
                         </div>
-                        <div class="card">
-                            <div class="label">Máquinas monitoradas</div>
-                            <div class="value">30</div>
+                    </div>
+
+                    <!-- FILTROS -->
+                    <div class="panel">
+                        <h2>Consultar máquinas e ocorrências</h2>
+
+                        <label for="filtroMaquina">Máquina</label>
+                        <select id="filtroMaquina" onchange="filtrarGestao()">
+                            <option value="todas">Todas as máquinas</option>
+                            <option value="09">Máquina 09</option>
+                            <option value="17">Máquina 17</option>
+                            <option value="23">Máquina 23</option>
+                        </select>
+
+                        <label for="filtroStatus">Situação</label>
+                        <select id="filtroStatus" onchange="filtrarGestao()">
+                            <option value="todos">Todas as situações</option>
+                            <option value="aberta">Pendente</option>
+                            <option value="continuidade">Em continuidade</option>
+                            <option value="resolvida">Resolvida</option>
+                        </select>
+
+                        <button class="primary" onclick="filtrarGestao()">
+                            Consultar registros
+                        </button>
+                    </div>
+
+                    <!-- HISTÓRICO -->
+                    <div class="panel" style="margin-top:18px">
+                        <h2>Histórico de manutenção</h2>
+                        <p class="sub">
+                            Consulte as ações realizadas e o resultado de cada intervenção.
+                        </p>
+
+                        <div class="table-wrap">
+                            <table class="gestao-tabela">
+                                <thead>
+                                    <tr>
+                                        <th>Máquina</th>
+                                        <th>Data</th>
+                                        <th>Turno</th>
+                                        <th>Ocorrência</th>
+                                        <th>Procedimento</th>
+                                        <th>Resultado</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabelaGestao"></tbody>
+                            </table>
+                        </div>
+                        <p id="semRegistros" class="hidden">
+                            Nenhum registro encontrado para esses filtros.
+                        </p>
+                    </div>
+
+                    <!-- DETALHES DA MÁQUINA -->
+                    <div class="panel" style="margin-top:18px">
+                        <h2>Detalhes e análise da máquina</h2>
+                        <p>Escolha uma máquina para consultar o resumo do histórico.</p>
+
+                        <label for="maquinaAnalise">Selecionar máquina</label>
+                        <select id="maquinaAnalise">
+                            <option value="09">Máquina 09</option>
+                            <option value="17">Máquina 17</option>
+                            <option value="23">Máquina 23</option>
+                        </select>
+
+                        <button class="primary" onclick="analisarHistorico()">
+                            ✨ Analisar histórico com IA
+                        </button>
+
+                        <div id="resultadoGestaoIA" class="ai hidden" aria-live="polite"></div>
+                    </div>
+
+                    <!-- ORDENS DE SERVIÇO -->
+                    <div class="panel" style="margin-top:18px">
+                        <h2>Ordens de serviço</h2>
+
+                        <div class="machine">
+                            <div>
+                                <b>OS-001 — Máquina 09</b><br>
+                                <small>Investigar falha persistente no sensor.</small>
+                            </div>
+                            <span class="tag red">PENDENTE</span>
+                        </div>
+
+                        <div class="machine">
+                            <div>
+                                <b>OS-002 — Máquina 17</b><br>
+                                <small>Monitorar temperatura e conferir o resultado dos testes.</small>
+                            </div>
+                            <span class="tag yellow">EM TESTE</span>
+                        </div>
+
+                        <div class="machine">
+                            <div>
+                                <b>OS-003 — Máquina 23</b><br>
+                                <small>Conferir o registro da substituição do componente.</small>
+                            </div>
+                            <span class="tag green">CONCLUÍDA</span>
                         </div>
                     </div>
-                    <div class="grid">
-                        <div class="panel">
-                            <h2>Acompanhamento</h2>
-                            <p>Os gestores podem consultar as ocorrências registradas pela equipe de manutenção.</p>
-                            <p>Também podem acompanhar a continuidade dos reparos e consultar o histórico das máquinas.
-                            </p>
-                        </div>
-                        <div class="panel">
-                            <h2>Controle de dados</h2>
-                            <p>O acesso às informações ocorre conforme as permissões do usuário.</p>
-                            <p><b>Área:</b>Gestão</p>
-                            <p><b>Função:</b>Acompanhamento e administração dos dados.</p>
-                        </div>
+                    <div class="panel" style="margin-top:18px">
+                        <h2>Controle de informações</h2>
+                        <p><b>Área:</b> Gestão</p>
+                        <p><b>Função:</b> Acompanhar ocorrências e consultar históricos.</p>
+                        <p><b>Indicadores:</b> Falhas, pendências e continuidade dos reparos.</p>
+                        <p class="sub">
+                            Os dados exibidos nesta versão são demonstrativos.
+                            A integração com registros reais depende de uma base de dados compartilhada.
+                        </p>
                     </div>
+                </section>
                 </section>
             </main>
         </div>
     </div>
-    <script>const areasManutencao = {
+    <script> const areasManutencao = {
             "123446": "Manutenção Preditiva",
             "567832": "Manutenção Preditiva",
             "246870": "Manutenção Preventiva",
@@ -331,6 +434,7 @@
             document.getElementById("resultado").classList.remove("hidden");
         }
     </script>
+    <script src="cod.js"></script>
 </body>
 
 </html>
